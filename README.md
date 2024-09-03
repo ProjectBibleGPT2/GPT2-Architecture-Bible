@@ -4,5 +4,15 @@ This repo uses the [Inoob/Null-GPT2-Large](https://huggingface.co/Inoob/gpt2-lar
 
 ## Usage
 
-run train.py
+For cuda:
 
+```
+python -m pip install -r requirements_cuda.txt
+```
+
+For CPU
+
+```
+python -m pip install -r requirements_cpu.txt
+```
+then just run train.py
