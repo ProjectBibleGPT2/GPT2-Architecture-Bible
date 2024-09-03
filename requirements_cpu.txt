@@ -1,0 +1,6 @@
+numpy<1
+torch==2.4.0
+transformers[torch]
+dataset
+sentencepiece
+accelerate
