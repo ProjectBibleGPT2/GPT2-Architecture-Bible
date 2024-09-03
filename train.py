@@ -2,12 +2,12 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer, DataCollatorForLanguage
 from transformers import Trainer, TrainingArguments
 import torch
 import os
+import clear_bible, randmnize_null_gpt2 
 from datasets import load_dataset
 
-# Load the reset model and tokenizer
-model_path = "Inoob/gpt2-large-architecture"
-model = GPT2LMHeadModel.from_pretrained(model_path)
-tokenizer = GPT2Tokenizer.from_pretrained(model_path)
+clear_bible.clean("cleared.txt")
+
+model,tokenizer = randmnize_null_gpt2.randomize()
 
 # Set the padding token
 tokenizer.pad_token = tokenizer.eos_token
