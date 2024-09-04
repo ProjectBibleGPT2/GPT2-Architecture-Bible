@@ -2,7 +2,7 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 import os
 def randomize():
-    model_name = "Inoob/Null-GPT2-Large"
+    model_name = "Inoob/NullGPT2"
     model = GPT2LMHeadModel.from_pretrained(model_name)
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
