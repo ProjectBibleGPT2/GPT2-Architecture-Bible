@@ -1,0 +1,6 @@
+numpy<1
+torch-xla
+transformers[torch-xla]
+dataset
+sentencepiece
+accelerate
