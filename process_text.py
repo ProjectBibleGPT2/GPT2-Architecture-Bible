@@ -1,5 +1,5 @@
-def clean(output):
-    bbl = open("Bible_KJV.txt", "r", encoding="utf-8")
+def clean(input,output):
+    bbl = open(input, "r", encoding="utf-8")
     bbl_text = bbl.read()
     bbl.close()
 
