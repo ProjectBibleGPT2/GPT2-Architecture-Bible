@@ -1,8 +1,8 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 import os
-def randomize():
-    model_name = "Inoob/NullGPT2"
+def randomize(input_model):
+    model_name = input_model
     model = GPT2LMHeadModel.from_pretrained(model_name)
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
@@ -14,7 +14,7 @@ def randomize():
             torch.nn.init.zeros_(param)
     return model, tokenizer
 if __name__ == "__main__":
-    model,tokenizer =randomize("gpt2-large-architecture")
+    model,tokenizer =randomize("Inoob/Null-GPT2-Large")
     output_dir = "./gpt2-large-architecture"
     # Save the reset model and tokenizer
     if not os.path.exists(output_dir):
