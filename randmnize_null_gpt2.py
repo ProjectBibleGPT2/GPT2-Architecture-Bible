@@ -8,7 +8,13 @@ from tokenizers import (
 )
 import torch
 import os
-def randomize(input_model):
+def get_vocab_size(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        text = file.read()
+    words = text.split()
+    unique_words = set(words)
+    return len(unique_words)
+def randomize(input_model, file_path):
     model_name = input_model
     model = GPT2LMHeadModel.from_pretrained(model_name)
     
@@ -21,9 +27,9 @@ def randomize(input_model):
             torch.nn.init.zeros_(param)
     tokenizer = Tokenizer(models.BPE())
     tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
-    trainer = trainers.BpeTrainer(vocab_size=25000, special_tokens=["<|endoftext|>"])
+    trainer = trainers.BpeTrainer(vocab_size=get_vocab_size(file_path), special_tokens=["<|endoftext|>"])
     tokenizer.model = models.BPE()
-    tokenizer.train(["cleared.txt"], trainer=trainer)
+    tokenizer.train([file_path], trainer=trainer)
     tokenizer.post_processor = processors.ByteLevel(trim_offsets=False)
     tokenizer = GPT2TokenizerFast(tokenizer_object=tokenizer)
     return model, tokenizer
