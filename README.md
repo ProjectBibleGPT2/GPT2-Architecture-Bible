@@ -1,6 +1,6 @@
 # GPT2 Architecture Bible
 
-This repo is used for the training of (Inoob/Bible_GPT2)[https://huggingface.co/Inoob/Bible_GPT2].
+This repo is used for the training of [Inoob/Bible_GPT2](https://huggingface.co/Inoob/Bible_GPT2).
 
 ## Usage
 
