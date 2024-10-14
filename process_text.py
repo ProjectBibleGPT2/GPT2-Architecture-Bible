@@ -1,10 +1,11 @@
-def clean(input,output):
+def clean(input, output, version):
     bbl = open(input, "r", encoding="utf-8")
     bbl_text = bbl.read()
     bbl.close()
+    bbl_list = bbl_text.split("\n")
+    new_bbl = []
+    for x in bbl_list:
+        if x != "":
+            new_bbl.append(f"In the Bible version {version}, {x.split('	')[0]} states that '"+x.split("	")[1].replace("[","").replace("]","")+"'\n")
+    open(output, "w", encoding="utf-8").writelines(new_bbl)
 
-    open(output, "w", encoding="utf-8").write(bbl_text.split("	")[0]+" states that: "+bbl_text.split("	")[1].replace("[","").replace("]",""))
-
-
-if __name__ == "__main__":
-    clean("cleared.txt")
