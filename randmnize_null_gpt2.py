@@ -33,7 +33,6 @@ def randomize(input_model, file_path):
     tokenizer.train([file_path], trainer=trainer)
     tokenizer.post_processor = processors.ByteLevel(trim_offsets=False)
     tokenizer = GPT2TokenizerFast(tokenizer_object=tokenizer)
-    tokenizer.decoder = decoders.ByteLevel()
     return model, tokenizer
 if __name__ == "__main__":
     model,tokenizer =randomize("Inoob/Null-GPT2-Large")
